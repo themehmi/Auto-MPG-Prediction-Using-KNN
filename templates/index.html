@@ -16,7 +16,6 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            /* Background image with a dark overlay for readability */
             background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
                         url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920');
             background-size: cover;
@@ -34,25 +33,53 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 24px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            width: 90%; /* Mobile width */
-            max-width: 500px; /* Desktop limit */
+            width: 90%;
+            max-width: 500px;
             margin: 20px auto;
             box-sizing: border-box;
+        }
+
+        /* --- Project Introduction Styling --- */
+        .project-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-intro p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        .ai-tag {
+            display: inline-block;
+            background: rgba(26, 86, 219, 0.2);
+            border: 1px solid var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
         }
 
         h2 {
             text-align: center;
             margin-top: 0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
             letter-spacing: 1px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
-        /* Responsive Grid: 1 column on mobile, 2 on tablets/desktops */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr; 
@@ -62,9 +89,6 @@
         @media (min-width: 480px) {
             .form-grid {
                 grid-template-columns: 1fr 1fr;
-            }
-            .full-width-mobile {
-                grid-column: span 2;
             }
         }
 
@@ -88,7 +112,7 @@
             color: white;
             font-size: 1rem;
             transition: all 0.3s ease;
-            -webkit-appearance: none; /* Removes mobile safari styling */
+            -webkit-appearance: none;
         }
 
         input:focus {
@@ -142,7 +166,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Utility to ensure origin input is always full width */
         .origin-field {
             grid-column: span 1;
         }
@@ -154,7 +177,16 @@
 <body>
 
 <div class="container">
-    <h2>MPG Predictor</h2>
+    <div class="project-intro">
+        <span class="ai-tag">Neural Regression Model</span>
+        <h2>MPG Predictor</h2>
+        <p>
+            This application utilizes <strong>Machine Learning</strong> to estimate the fuel efficiency 
+            of vehicles. By analyzing technical specifications like horsepower and weight, the model 
+            provides a data-driven prediction of Miles Per Gallon (MPG).
+        </p>
+    </div>
+
     <form action="/predict" method="post">
         <div class="form-grid">
             <div class="form-group">
